@@ -188,7 +188,7 @@ body {
         flex-direction: column; /* Stack images vertically */
         gap: 30px; /* Reduce gap even more */
         margin-top: 40%;
-        padding: 0%;
+        padding: 20%;
     }
 
     .photo-grid a {
