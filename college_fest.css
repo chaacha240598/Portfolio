@@ -1,0 +1,365 @@
+/* Global Styles */
+body {
+    font-family: 'Montserrat', sans-serif; /* Use Montserrat font */
+    background-color: white; /* White background for the page */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+.page-heading {
+    text-align: center; /* Center align the heading */
+    font-size: 2.5em; /* Font size for heading */
+    color: black; /* Black color for the heading */
+    font-weight: 900; /* Bold weight */
+    margin: 20px 0; /* Margin for spacing */
+}
+
+/* Menu Toggle Button Styles */
+.menu-toggle {
+    position: fixed; /* Fixed position for toggle button */
+    top: 20px; /* Position from top */
+    right: 20px; /* Position from right */
+    cursor: pointer; /* Pointer cursor on hover */
+    z-index: 10; /* Ensure button is on top */
+    transition: transform 0.3s ease; /* Animation on hover */
+    background: none; /* No background */
+    border: none; /* No border */
+}
+
+.menu-toggle:hover {
+    transform: scale(1.1); /* Scale up effect on hover */
+}
+
+.line {
+    width: 30px; /* Line width */
+    height: 4px; /* Line height */
+    background-color: black; /* Line color */
+    margin: 5px 0; /* Spacing between lines */
+    transition: all 0.3s ease; /* Transition for animations */
+}
+
+.menu-toggle.open .line {
+    background-color: white; /* Change line color when open */
+}
+
+.menu-toggle.open .line:nth-child(1) {
+    transform: translateY(9px) rotate(45deg); /* Rotate first line */
+}
+
+.menu-toggle.open .line:nth-child(2) {
+    opacity: 0; /* Hide second line */
+}
+
+.menu-toggle.open .line:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg); /* Rotate third line */
+}
+
+/* Overlay Menu Styles */
+.overlay-menu {
+    position: fixed; /* Fixed position for overlay */
+    top: 0; /* Position from top */
+    left: 0; /* Position from left */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.9); /* Black with opacity */
+    display: flex; /* Flexbox for centering */
+    justify-content: center; /* Center align items */
+    align-items: center; /* Center align items */
+    opacity: 0; /* Hidden by default */
+    visibility: hidden; /* Not visible */
+    transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.6s ease; /* Animation for visibility */
+    z-index: 9; /* Z-index for layering */
+}
+
+.overlay-menu.open {
+    opacity: 1; /* Show when open */
+    visibility: visible; /* Set to visible */
+    transform: scale(1); /* Reset transform */
+}
+
+.overlay-menu-list {
+    list-style: none; /* No bullets for list */
+    padding: 20px; /* Padding for list */
+    text-align: center; /* Center align text */
+}
+
+.overlay-menu-list li {
+    font-size: 24px; /* Font size for list items */
+    margin: 20px 0; /* Margin for spacing */
+    opacity: 0; /* Hidden by default */
+    transform: translateY(20px); /* Position down */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Animation for show */
+    color: white; /* Text color */
+    font-weight: 600; /* Font weight */
+}
+
+.overlay-menu-list li a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+.overlay-menu-list li.show {
+    opacity: 1; /* Show when class added */
+    transform: translateY(0); /* Reset transform */
+}
+
+.overlay-menu-list li:hover {
+    transform: scale(1.1); /* Scale effect on hover */
+    cursor: pointer; /* Pointer cursor */
+    transition: transform 0.3s ease; /* Transition for hover */
+}
+
+/* Photo Grid */
+.photo-grid {
+    display: grid; /* Use CSS Grid layout */
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 10px; /* Gap between grid items */
+    width: 70%; /* Width of the grid */
+    margin: 0 auto; /* Center the grid */
+    margin-bottom: 50px;
+    
+}
+
+.photo-grid img {
+    width: 100%; /* Make images responsive */
+    border-radius: 5px; /* Slightly rounded edges */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+}
+
+.photo-grid img:hover {
+    transform: scale(1.05); /* Scale up effect on hover */
+    cursor: pointer; /* Pointer cursor */
+}
+
+/* Video Section*/ 
+
+#videoSection {
+    background-color: black; /* Background color */
+    padding: 100px; /* Padding for larger screens */
+    display: block; 
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between videos */
+}
+
+.video-container {
+    display: flex; /* Flexbox layout */
+    justify-content: center; /* Center align the videos */
+    gap: 20px; /* Space between the video iframes */
+}
+
+.video-container iframe {
+    border: none; /* Remove iframe border */
+    width: 100%; /* Full width for responsiveness */
+    max-width: 560px; /* Max width for large screens */
+    height: 315px; /* Keep aspect ratio */
+}
+
+/* Lightbox */
+.lightbox {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0; /* Position from left */
+    top: 0; /* Position from top */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow:auto;
+    background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+}
+
+.lightbox-content {
+    position: fixed;
+    top: 50%; /* Position from top */
+    left: 50%; /* Position from left */
+    transform: translate(-50%, -50%); /* Center the lightbox */
+    max-width: 100vh; /* Increased max width */
+    max-height: 95vh; /* Increased max height */
+    text-align: center; /* Center align content */
+    margin: auto; /* Center margin */
+}
+
+.lightbox-content img {
+    width: auto; /* Make images responsive */
+    max-width: 100%; /* Max width */
+    max-height: 90vh; /* Increased max height */
+    scale: 120%;
+    border-radius: 10px; /* Slightly rounded edges */
+}
+
+.lightbox .close {
+    position: absolute; /* Position absolute */
+    top: 20px; /* Position from top */
+    right: 40px; /* Position from right */
+    color: white; /* Close button color */
+    font-size: 50px; /* Close button size */
+    cursor: pointer; /* Pointer cursor */
+    transition: transform 0.3s ease; /* Animation on hover */
+}
+
+.lightbox .close:hover {
+    transform: scale(1.2); /* Scale effect on hover */
+}
+
+.lightbox .prev,
+.lightbox .next {
+    cursor: pointer; /* Pointer cursor on hover */
+    position: absolute; /* Fixed position */
+    top: 50%; /* Position from top */
+    padding: 20px; /* Increased padding for buttons */
+    margin-top: -22px; /* Adjust for centering */
+    color: white; /* Button color */
+    font-weight: bold; /* Button weight */
+    font-size: 30px; /* Increased button size */
+    transition: 0.3s ease; /* Transition for hover */
+    border-radius: 6px; /* Rounded edges */
+    user-select: none; /* Prevent selection */
+}
+
+.lightbox .prev {
+    left: -150px; /* Adjusted position for buttons */
+}
+
+.lightbox .next {
+    right: -150px; /* Adjusted position for buttons */
+}
+
+.lightbox .prev:hover,
+.lightbox .next:hover {
+    transform: scale(1.2); /* Scale effect on hover */
+}
+
+/* Lightbox Animation */
+@keyframes close-animation {
+    from {
+        transform: scale(1); /* Initial scale */
+    }
+    to {
+        transform: scale(1.2); /* Scaled up */
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .photo-grid {
+        grid-template-columns: repeat(2, 1fr); /* Adjust grid for smaller screens */
+        padding: 20px;
+        gap: 15px;
+        margin-top: -20px;
+    }
+
+    .lightbox-content {
+        max-width: 90%; /* Max width for lightbox */
+        max-height: 85vh; /* Max height for lightbox */
+    }
+
+    .lightbox-content img {
+        max-width: 100%; /* Responsive images */
+        max-height: 85vh; /* Max height for images */
+        scale: 180%;
+        object-fit: cover; /* Fit better */
+    }
+    .lightbox .close {
+        display: none;
+    }
+     
+    .lightbox .prev, 
+    .lightbox .next {
+        display: none;
+    }
+    #videoSection {
+        padding: 80px; /* Reduce padding */
+    }
+
+    .video-container iframe {
+        max-width: 400px; /* Adjust max-width for tablets */
+        max-height: 225px; /* Make height responsive */
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 768px) {
+    .photo-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+
+    .page-heading {
+        font-size: 1.8em; /* Adjust heading size for mobile */
+    }
+
+    .menu-toggle {
+        top: 15px; /* Adjust toggle position */
+        right: 10px; /* Adjust toggle position */
+        scale: 70%;
+    }
+
+    .overlay-menu-list li {
+        font-size: 18px; /* Font size for overlay menu */
+        margin: 10px 0; /* Margin for spacing */
+    }
+
+    .lightbox-content {
+        max-width: 100%; /* Max width for mobile */
+        max-height: 100vh; /* Max height for mobile */
+    }
+
+    .lightbox-content img {
+        max-height: 100vh; /* Max height for images */
+        scale: 180%;
+    }
+
+    .lightbox .prev, 
+    .lightbox .next {
+        display: none;
+    }
+    #videoSection {
+        padding: 50px; /* Further reduce padding */
+    }
+    .video-container {
+        display: flex; /* Flexbox layout */
+        flex-wrap: wrap; /* Allow wrapping for smaller screens */
+        gap: 30px; /* Space between the video iframes */
+    }    
+
+    .video-container iframe {
+        max-width: 500px; /* Use full width on mobile */
+        max-height: 281px; /* Auto height to maintain aspect ratio */
+    }
+}
+
+/* Very small mobile devices */
+@media (max-width: 480px) {
+    .page-heading {
+        font-size: 1.5em; /* Further adjust heading size */
+    }
+
+    .menu-toggle {
+        top: 1.2em; /* Adjust toggle position */
+        right: 10px; /* Adjust toggle position */
+    }
+    .lightbox-content {
+        max-width: 100%; /* Max width for very small devices */
+        max-height: 100vh; /* Max height for very small devices */
+    }
+
+    .lightbox-content img {
+        max-height: 100vh; /* Adjust image height */
+        scale: 180%;
+    }
+
+    .lightbox .prev, 
+    .lightbox .next {
+        display: none;      
+    }
+    .video-container {
+        display: flex; /* Flexbox layout */
+        flex-wrap: wrap; /* Allow wrapping for smaller screens */
+        gap: 30px; /* Space between the video iframes */
+    }    
+
+    .video-container iframe {
+        max-width: 300px; /* Use full width on mobile */
+        max-height: 169px; /* Auto height to maintain aspect ratio */
+    }
+}
