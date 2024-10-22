@@ -192,22 +192,19 @@ const showVideoSectionOnScroll = () => {
 
 window.addEventListener("scroll", showVideoSectionOnScroll);
 
-// Menu toggle functionality
+// Menu Toggle Script
 const menuToggle = document.getElementById('menuToggle');
 const overlayMenu = document.getElementById('overlayMenu');
-menuToggle.addEventListener('click', function () {
-    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-    menuToggle.setAttribute('aria-expanded', !isExpanded);
-    menuToggle.classList.toggle('open');
+const overlayMenuItems = document.querySelectorAll('.overlay-menu-list li');
+
+menuToggle.addEventListener('click', () => {
+    const isOpen = menuToggle.classList.toggle('open');
     overlayMenu.classList.toggle('open');
-    
-    if (!isExpanded) {
-        // Show menu items with a delay for animation
-        const menuItems = document.querySelectorAll('.overlay-menu-list li');
-        menuItems.forEach((item, index) => {
-            setTimeout(() => {
-                item.classList.add('show');
-            }, index * 100);
-        });
-    }
+    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+
+    overlayMenuItems.forEach((item, index) => {
+        setTimeout(() => {
+            item.classList.toggle('show');
+        }, index * 100); // Staggered show effect
+    });
 });
