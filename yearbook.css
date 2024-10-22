@@ -184,11 +184,6 @@ body {
         font-size: 1.5em; /* Smaller font for smaller screens */
     }
 
-    .menu-toggle {
-        top: 1em; /* Adjust toggle position */
-        right: 10px; /* Adjust toggle position */
-    }
-
     .photo-grid {
         flex-direction: column; /* Stack images vertically */
         gap: 30px; /* Reduce gap even more */
@@ -200,6 +195,7 @@ body {
         max-width: 80vw; /* Almost full width */
     }
     .menu-toggle {
-        top: 30px;
+        top: 2.1em;
+        scale: 80%;
     }
 }
