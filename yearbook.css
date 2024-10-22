@@ -176,6 +176,10 @@ body {
     .menu-toggle {
         top: 38px;
     }
+    .overlay-menu-list li {
+        font-size: 18px; /* Font size for overlay menu */
+        margin: 10px 0; /* Margin for spacing */
+    }
 }
 
 /* For devices with max-width of 480px */
