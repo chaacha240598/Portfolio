@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Fest</title>
+    <link rel="stylesheet" href="college_fest.css">
+</head>
+<body>
+    <!-- Menu Toggle Button -->
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-label="Toggle Menu">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </button>
+
+    <!-- Overlay Menu -->
+    <nav class="overlay-menu" id="overlayMenu" aria-label="Main Navigation">
+        <ul class="overlay-menu-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="college_fest.html">College Fest</a></li>
+            <li><a href="celebrity_night.html">Celebrity Night's</a></li>
+            <li><a href="stock_photos.html">Stock Photos</a></li>
+            <li><a href="tedx.html">TEDx</a></li>
+            <li><a href="yearbook.html">Yearbook</a></li>
+            <li><a href="corporate_films.html">Corporate Films</a></li>
+            <li><a href="corporate_offsites.html">Corporate Offsites</a></li>
+            <li><a href="corporate_events.html">Corporate Events</a></li>
+            <li><a href="weddings.html">Weddings</a></li>
+            <li><a href="pre_weddings.html">Pre Weddings</a></li>
+        </ul>
+    </nav>
+
+    <h1 class="page-heading">COLLEGE FEST</h1>
+
+    <!-- Photo Grid -->
+    <div class="photo-grid" id="photoGrid"></div>
+
+    <!-- Existing Video Section -->
+    <section id="videoSection">
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/2__D7r8ZXUg?si=uaXQVZnzoFkwP-jj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/mDunVJbVD60?si=OYm-YfcRph8NakTC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="close cursor" onclick="closeLightbox()">&times;</span>
+        <div class="lightbox-content">
+            <div class="lightbox-slides" id="lightboxSlides"></div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    </div>
+
+    <script src="college_fest.js"></script>
+</body>
+</html>
