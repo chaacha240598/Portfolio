@@ -157,6 +157,7 @@ body {
     width: auto; /* Make images responsive */
     max-width: 100%; /* Max width */
     max-height: 90vh; /* Increased max height */
+    margin-top: 60px;
     scale: 120%;
     border-radius: 10px; /* Slightly rounded edges */
 }
@@ -202,6 +203,35 @@ body {
 .lightbox .next:hover {
     transform: scale(1.2); /* Scale effect on hover */
 }
+/* Circular Navigation Dots */
+.lightbox-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.lightbox-nav .dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+
+.lightbox-nav .dot.active {
+    background-color: gray;
+    transform: scale(1.2);
+}
+
+
+.lightbox-nav .dot:hover {
+    transform: scale(1.2);
+}
+
 
 /* Lightbox Animation */
 @keyframes close-animation {
@@ -242,6 +272,20 @@ body {
     .lightbox .next {
         display: none;
     }
+
+    .lightbox-nav {
+        margin-top: 160px; /* Adjust margin for smaller screens */
+    }
+    
+    .lightbox-nav .dot {
+        width: 16px; /* Smaller dot size for tablets */
+        height: 16px; /* Smaller dot size for tablets */
+        margin: 0 6px; /* Reduced margin */
+    }
+
+    .lightbox-nav .dot.active {
+        transform: scale(1.1); /* Slightly smaller active dot */
+    }
 }
 
 /* Mobile phones */
@@ -279,6 +323,19 @@ body {
     .lightbox .next {
         display: none;
     }
+    .lightbox-nav {
+        margin-top: 120px; /* Further reduce margin for mobile */
+    }
+    
+    .lightbox-nav .dot {
+        width: 12px; /* Even smaller dot size for mobile */
+        height: 12px; /* Even smaller dot size for mobile */
+        margin: 0 5px; /* Further reduced margin */
+    }
+
+    .lightbox-nav .dot.active {
+        transform: scale(1.2); /* Active dot size adjustment */
+    }
 }
 
 /* Very small mobile devices */
@@ -304,5 +361,19 @@ body {
     .lightbox .prev, 
     .lightbox .next {
         display: none;      
+    }
+
+    .lightbox-nav {
+        margin-top: 80px; /* Minimal margin for very small devices */
+    }
+    
+    .lightbox-nav .dot {
+        width: 8px; /* Smallest dot size for very small devices */
+        height: 8px; /* Smallest dot size for very small devices */
+        margin: 0 3px; /* Minimal margin */
+    }
+
+    .lightbox-nav .dot.active {
+        transform: scale(1.3); /* Adjust active dot size for small screens */
     }
 }
