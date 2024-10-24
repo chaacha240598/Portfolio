@@ -22,11 +22,14 @@ const imageSources = [
 // Get the photo grid and lightbox slides elements
 const photoGrid = document.getElementById('photoGrid');
 const lightboxSlides = document.getElementById('lightboxSlides');
+const lightboxNav = document.getElementById('lightboxNav');
 
 let currentSlideIndex = 0; // Variable to keep track of the current slide index
 
-// Function to load images into the photo grid and lightbox
+// Function to load images into the photo grid and lightbox, and create navigation dots
 function loadImages() {
+    const totalDots = 5; // Only 5 dots for navigation
+
     imageSources.forEach((src, index) => {
         // Create img elements for photo grid (only the first 12)
         if (index < 12) {
@@ -44,6 +47,14 @@ function loadImages() {
         lightboxImg.alt = `Photo ${index + 1}`;
         lightboxSlides.appendChild(lightboxImg);
     });
+
+    // Create exactly 5 navigation dots
+    for (let i = 0; i < totalDots; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'dot'; // Uniform size for all dots
+        dot.onclick = () => showSlide(Math.floor(i * imageSources.length / totalDots)); // Navigate to corresponding slide
+        lightboxNav.appendChild(dot);
+    }
 }
 
 // Function to open the lightbox with the selected image
@@ -62,9 +73,10 @@ function closeLightbox() {
     document.body.style.overflow = 'auto'; // Re-enable scrolling when lightbox is closed
 }
 
-// Function to show the current slide
+// Function to show the current slide and highlight the active dot
 function showSlide(index) {
     const slides = document.querySelectorAll('.lightbox-slides img');
+    const dots = document.querySelectorAll('.lightbox-nav .dot');
 
     // Wrap around the slide index
     if (index >= slides.length) {
@@ -78,6 +90,12 @@ function showSlide(index) {
     slides.forEach((slide, i) => {
         slide.style.display = (i === currentSlideIndex) ? 'block' : 'none'; // Show current slide
     });
+
+    // Highlight the dot closest to the current slide
+    const activeDotIndex = Math.floor(currentSlideIndex / (imageSources.length / dots.length));
+    dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === activeDotIndex); // Highlight active dot
+    });
 }
 
 // Swipe functionality for touch devices
@@ -85,7 +103,6 @@ let startX = 0;
 let endX = 0;
 
 const lightbox = document.querySelector('.lightbox');
-const lightboxImage = document.querySelector('.lightbox img');
 
 // Swipe functionality
 lightbox.addEventListener('touchstart', function (e) {
@@ -107,15 +124,10 @@ lightbox.addEventListener('touchend', function (e) {
 
 // Close lightbox when clicking outside the image
 lightbox.addEventListener('click', function (e) {
-    // Check if the click is outside the image
     if (e.target === lightbox) {
         closeLightbox(); // Function to close the lightbox
     }
 });
-
-function closeLightbox() {
-    lightbox.style.display = 'none'; // or another method to hide the lightbox
-}
 
 // Event listeners for the lightbox close button and navigation
 document.querySelector('.lightbox .close').onclick = closeLightbox;
